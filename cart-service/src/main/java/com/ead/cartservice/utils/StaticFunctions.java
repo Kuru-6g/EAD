@@ -1,4 +1,5 @@
-package org.example.cartservice.utils;
+package com.ead.cartservice.utils;
+
 
 
 import java.util.stream.Collector;

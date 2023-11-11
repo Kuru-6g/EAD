@@ -1,7 +1,7 @@
 api:
   user-service: lb://user-service/api/v1/users
 server:
-  port: 8082
+  port: 8086
   error:
     include-exception: true
 
