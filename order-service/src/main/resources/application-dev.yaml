@@ -13,7 +13,7 @@ spring:
       enabled: false
   datasource:
 
-    url: jdbc:postgresql://localhost:5435/order
+    url: jdbc:postgresql://localhost:5632/guru
 
   jpa:
     hibernate:
