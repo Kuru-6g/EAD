@@ -33,10 +33,7 @@ public class OrderController {
 
     /**
      * Create a new order
-     *
-     * @param request        The HttpServletRequest.
-     * @param orderCreateDto The order to create.
-     * @return The created order.
+
      */
     @Operation(
             summary = "Create a new order",
@@ -61,10 +58,7 @@ public class OrderController {
 
     /**
      * Get an order for the current user
-     *
-     * @param request The HttpServletRequest.
-     * @param orderId The order id.
-     * @return The order.
+
      */
     @Operation(
             summary = "Get an order for the current user",

@@ -3,7 +3,7 @@ info:
     name: '@project.artifactId@'
     version: '@project.version@'
 server:
-  port: 8764
+  port: 8761
 spring:
   profiles:
     active: dev

@@ -36,11 +36,8 @@ public class ProductController {
 
 
     /**
-     * Create a new product
-     *
-     * @param request          The HttpServletRequest.
-     * @param productCreateDto The product to create.
-     * @return The created product.
+      Create a new product
+
      */
     @Operation(
             summary = "Create a new product",
@@ -113,10 +110,7 @@ public class ProductController {
 
     /**
      * Increase the stock of products
-     *
-     * @param request            The HttpServletRequest.
-     * @param productsQuantities The products and quantities to increase.
-     * @return No content.
+
      */
     @Operation(
             summary = "Increase the stock of products",
@@ -165,10 +159,7 @@ public class ProductController {
 
     /**
      * Get all products by ids
-     *
-     * @param request The HttpServletRequest.
-     * @param ids     The products ids.
-     * @return List of products.
+
      */
     @Operation(
             summary = "Get all products by ids",

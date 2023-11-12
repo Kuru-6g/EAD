@@ -29,40 +29,9 @@ public class ApiGatewayApplication {
     @Bean
     public RouteLocator myRoutes(
             final RouteLocatorBuilder builder,
-            final AuthenticationPrefilter authFilter,
             final SwaggerFilter swaggerFilter) {
         return builder.routes()
-                .route("auth-service",
-                        r -> r.path("/api/v1/auth/login")
-                                .uri("lb://auth-service"))
-                .route("user-service-with-auth",
-                        r -> r.path("/api/v1/users/me/**")
-                                .filters(f -> f.filter(authFilter))
-                                .uri("lb://user-service"))
-                .route("user-service-no-auth",
-                        r -> r.path("/api/v1/users/**")
-                                .uri("lb://user-service"))
-                .route("inventory-service-with-auth",
-                        r -> r.path("/api/v1/products/users/me/**")
-                                .filters(f -> f.filter(authFilter))
-                                .uri("lb://inventory-service"))
-                .route("inventory-service-no-auth",
-                        r -> r.path("/api/v1/products/**")
-                                .uri("lb://inventory-service"))
-                .route("reviews-service-with-auth",
-                        r -> r.path("/api/v1/reviews/users/me/**")
-                                .filters(f -> f.filter(authFilter))
-                                .uri("lb://reviews-service"))
-                .route("reviews-service-no-auth",
-                        r -> r.path("/api/v1/reviews/**")
-                                .uri("lb://reviews-service"))
-                .route("orders-service-with-auth",
-                        r -> r.path("/api/v1/orders/users/me/**")
-                                .filters(f -> f.filter(authFilter))
-                                .uri("lb://order-service"))
-                .route("orders-service-no-auth",
-                        r -> r.path("/api/v1/orders/**")
-                                .uri("lb://order-service"))
+
                 .route("user-service-api-docs", r -> r.path("/user-service/api-docs")
                         .filters(f -> f.filter(swaggerFilter.apply(new SwaggerFilter.Config())))
                         .uri("lb://user-service"))
@@ -75,12 +44,6 @@ public class ApiGatewayApplication {
                 .route("cart-service-api-docs", r -> r.path("/cart-service/api-docs")
                         .filters(f -> f.filter(swaggerFilter.apply(new SwaggerFilter.Config())))
                         .uri("lb://cart-service"))
-                .route("reviews-service-api-docs", r -> r.path("/reviews-service/api-docs")
-                        .filters(f -> f.filter(swaggerFilter.apply(new SwaggerFilter.Config())))
-                        .uri("lb://reviews-service"))
-                .route("auth-service-api-docs", r -> r.path("/auth-service/api-docs")
-                        .filters(f -> f.filter(swaggerFilter.apply(new SwaggerFilter.Config())))
-                        .uri("lb://auth-service"))
                 .build();
     }
 }
