@@ -2,6 +2,8 @@ package com.example.forgot.entities;
 
 import com.example.forgot.otp.OtpTable;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,12 +19,24 @@ public class AdminUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @NotBlank(message = "First name is required")
     private String firstName;
+
+    @NotBlank(message = "Last name is required")
     private String lastName;
+
+    @Email(message = "Invalid email address")
     private String email;
+
+    @NotBlank(message = "Password is required")
     private String password;
+
+    @NotBlank(message = "Username is required")
     private String userName;
+
+    @NotBlank(message = "User role is required")
     private String userRole;
+
     private boolean isEnabled = true;
 
     public String getLastName() {

@@ -6,9 +6,7 @@ import lombok.Builder;
 import java.io.Serializable;
 import java.util.List;
 
-/**
- * DTO for {@link com.example.orderservice.models.Order}
- */
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder
 public record OrderCreateDto(

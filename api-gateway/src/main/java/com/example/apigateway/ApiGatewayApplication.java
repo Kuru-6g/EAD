@@ -31,7 +31,6 @@ public class ApiGatewayApplication {
             final RouteLocatorBuilder builder,
             final SwaggerFilter swaggerFilter) {
         return builder.routes()
-
                 .route("user-service-api-docs", r -> r.path("/user-service/api-docs")
                         .filters(f -> f.filter(swaggerFilter.apply(new SwaggerFilter.Config())))
                         .uri("lb://user-service"))

@@ -1,5 +1,6 @@
 package com.example.orderservice.controllers;
 
+import com.ead.cartservice.service.CartService;
 import com.example.orderservice.config.ContextHolder;
 import com.example.orderservice.config.RequiresAuthentication;
 import com.example.orderservice.dtos.OrderCreateDto;
@@ -30,11 +31,9 @@ public class OrderController {
 
     private final IOrderService orderService;
     private final ContextHolder contextHolder;
+   // private final CartService cartService;
 
-    /**
-     * Create a new order
 
-     */
     @Operation(
             summary = "Create a new order",
             responses = {
@@ -43,23 +42,22 @@ public class OrderController {
             },
             security = @SecurityRequirement(name = "bearerAuth")
     )
-    @PostMapping("users/me")
-    @RequiresAuthentication
+    @PostMapping("users/customer")
+   // @RequiresAuthentication
     public ResponseEntity<OrderDto> add(
             HttpServletRequest request,
             @Valid @RequestBody OrderCreateDto orderCreateDto) {
 
         this.logRequest(request, orderCreateDto);
 
+
+
         var orderDto = this.orderService.addOne(orderCreateDto);
 
         return ResponseEntity.ok(orderDto);
     }
 
-    /**
-     * Get an order for the current user
 
-     */
     @Operation(
             summary = "Get an order for the current user",
             responses = {
@@ -68,7 +66,7 @@ public class OrderController {
             },
             security = @SecurityRequirement(name = "bearerAuth")
     )
-    @GetMapping("users/me/{orderId}")
+    @GetMapping("users/customer/{orderId}")
     @RequiresAuthentication
     public ResponseEntity<OrderDto> getOne(
             HttpServletRequest request,

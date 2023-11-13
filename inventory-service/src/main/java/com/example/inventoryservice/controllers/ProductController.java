@@ -35,10 +35,6 @@ public class ProductController {
     private final ContextHolder contextHolder;
 
 
-    /**
-      Create a new product
-
-     */
     @Operation(
             summary = "Create a new product",
             responses = {
@@ -59,13 +55,7 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.CREATED).body(productDto);
     }
 
-    /**
-     * Get the product by id
-     *
-     * @param request The HttpServletRequest.
-     * @param id      The product id.
-     * @return The product.
-     */
+
     @Operation(
             summary = "Get the product by id",
             responses = {
@@ -85,12 +75,7 @@ public class ProductController {
         return ResponseEntity.ok(productDto);
     }
 
-    /**
-     * Get all products
-     *
-     * @param request The HttpServletRequest.
-     * @return List of products.
-     */
+
     @Operation(
             summary = "Get all products",
             responses = {
@@ -108,10 +93,7 @@ public class ProductController {
         return ResponseEntity.ok(productsDto);
     }
 
-    /**
-     * Increase the stock of products
 
-     */
     @Operation(
             summary = "Increase the stock of products",
             responses = {
@@ -131,13 +113,7 @@ public class ProductController {
         return ResponseEntity.noContent().build();
     }
 
-    /**
-     * Decrease the stock of products
-     *
-     * @param request            The HttpServletRequest.
-     * @param productsQuantities The products and quantities to decrease.
-     * @return No content.
-     */
+
     @Operation(
             summary = "Decrease the stock of products",
             responses = {
@@ -157,10 +133,6 @@ public class ProductController {
         return ResponseEntity.noContent().build();
     }
 
-    /**
-     * Get all products by ids
-
-     */
     @Operation(
             summary = "Get all products by ids",
             responses = {
